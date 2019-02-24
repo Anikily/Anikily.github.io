@@ -59,7 +59,7 @@
 <p>2.基于检索，一般来说，这个方法在固定场景内的视频中是有效的，因为嵌入空间可以很好地推广，并且更丰富的模型结构提高了性能。 然而，当遇到以前从未见过的情况的视频时，效果会很差。 此外，由于嵌入是固定长度的，因此它限制了视频和文本描述可以携带的信息量。</p>
 <p> 3.<strong>基于编码的方法</strong>， 更正式地说，这些工作提出的框架是一个编码器 - 解码器结构，它将视频编码为语义表示特征向量，然后解码为自然语言。 </p>
 <h2 id="主要技术（attention-3D-conv）"><a href="#主要技术（attention-3D-conv）" class="headerlink" title="主要技术（attention,3D conv）"></a>主要技术（attention,3D conv）</h2><h3 id="双流法"><a href="#双流法" class="headerlink" title="双流法"></a>双流法</h3><p>光流表达了图像的变化，由于它包含了目标运动的信息，因此可被观察者用来确定目标的运动情况，每张图像中每个像素的运动速度和运动方向找出来就是光流场。</p>
-<p><img src="/2019/02/24/vedio-caption/video-caption/屏幕快照 2019-02-24 下午4.13.11.png" alt="屏幕快照 2019-02-24 下午4.13.11"></p>
+<p><img src="/2019/02/24/vedio-caption/屏幕快照 2019-02-24 下午4.13.11.png" alt="屏幕快照 2019-02-24 下午4.13.11"></p>
 <p>采用双通道CNN的方式，对光流和图片同时处理得到结果，最后fusion一起。</p>
 <p>一般的光流图为双通道的信息，分别为在X轴上的信息变化与Y轴上的信息变化。光流图是选择视频中的任意一帧的时间然后及其后面的N帧叠合成一个光流栈进入处理。</p>
 <h3 id="3D卷积"><a href="#3D卷积" class="headerlink" title="3D卷积"></a>3D卷积</h3><p>由于视频帧之间具有时间连续性，普通的2D卷积不能够充分表达这个特性，因此把相邻的几个帧合在一起组成一个具有三个维度的输入向量，同时在这三个维度进行卷积。<img src="/2019/02/24/vedio-caption/v2-86e2bd970d07f9d6e1d921b248e45a3a_b.gif" alt="v2-86e2bd970d07f9d6e1d921b248e45a3a_b"></p>
@@ -138,7 +138,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/24/vedio-caption/" data-id="cjsinsac30008aru2a8f78rdc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/24/vedio-caption/" data-id="cjsinv9h80006b3u2rmj14in9" class="article-share-link">Share</a>
       
     </footer>
 
