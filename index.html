@@ -56,6 +56,77 @@
 
     
       
+        <article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/02/24/hexo/">hexo</a>
+    </h2>
+  
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/02/24/hexo/" class="article-date">
+  <time datetime="2019-02-24T07:49:46.000Z" itemprop="datePublished">2019-02-24</time>
+</a>
+        
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+        <p><img src="/2019/02/24/hexo/u=763525133,1154728425&amp;fm=26&amp;gp=0.jpg" alt="u=763525133,1154728425&amp;fm=26&amp;gp=0"></p>
+<h1 id="Hexo-使用记录"><a href="#Hexo-使用记录" class="headerlink" title="Hexo 使用记录"></a>Hexo 使用记录</h1><h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><p>​    hexo网页就有教程，但还是跟着视频比较合适。 </p>
+<p>​    下载git和node.js，node.js现场下的，git之前就有用过。node -v和git version可以查看版本 </p>
+<h2 id="2-预处理"><a href="#2-预处理" class="headerlink" title="2.预处理"></a>2.预处理</h2><ul>
+<li>终端：hexo init bolog ，生成一个bolog文件夹，并有从github上的文件，算是创建网页</li>
+<li>进入 bolog文件夹下，npm install 可以继续下载安装文件夹时失败的文件</li>
+<li>hexo g可以generate一系列的网页模版，并在这之后生成public文件夹</li>
+<li>hexo s可以运行端口查看网页 ，在<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></li>
+</ul>
+<h2 id="3-编写"><a href="#3-编写" class="headerlink" title="3.编写"></a>3.编写</h2><ul>
+<li>题目：hexo new ‘title’可以编写一个文章，并在bolog文件夹下的source里面存放一个markdown文件，该文件只有头字段保留时间等基本信息。可以通过增加内容来写东西。</li>
+<li>然后还是hexo g，hexo s来生成网页，这样文章就出现在了网页里面。</li>
+<li>hexo new可以生成三种3中文本，hexo new自动生成post，即文章，hexo new draft 生成草稿，hexo new page生成网页页面，模板都在scaffolds里，需要可以修改和增加</li>
+</ul>
+<h2 id="4-front-meta（文章配置）"><a href="#4-front-meta（文章配置）" class="headerlink" title="4.front meta（文章配置）"></a>4.front meta（文章配置）</h2><ul>
+<li>是文章的属性信息，由md文件的—在开头括起来，由title，category，comment等属性</li>
+<li>yaml语言编写，具体应用现学现用即可</li>
+</ul>
+<h2 id="5-配置文件"><a href="#5-配置文件" class="headerlink" title="5.配置文件"></a>5.配置文件</h2><ul>
+<li>配置文件为_config.yml</li>
+<li>不同区域还有好多个配置文件。</li>
+<li>就是对网页，网站的一些配置，可以现学现用，而且太多。</li>
+</ul>
+<h2 id="6-hexo命令"><a href="#6-hexo命令" class="headerlink" title="6.hexo命令"></a>6.hexo命令</h2><p>- </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/24/hexo/" data-id="cjsimdasj000aysu2t8j9h3pl" class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-python" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
@@ -88,14 +159,16 @@
       
       
       
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">father</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">walk</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'&#123;&#125; is walking,who is &#123;&#125; years old.'</span>.format(self.name,self.age))</span><br><span class="line"><span class="comment">#format格式化，其中&#123;&#125;和：是一个作用，实际上&#123;&#125;常用于字符串和直接输出，：常用于数字定义</span></span><br><span class="line"><span class="comment">#format 使用。直接在format中写入变量，最好按顺序。</span></span><br><span class="line"><span class="comment">#因为在前面&#123;&#125;内可以定义顺序0，1或者填进变量名字，只不过format中要加’=‘，或者直接输入字典。</span></span><br><span class="line">c = father(<span class="string">'andy'</span>,<span class="number">22</span>)    </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">children</span><span class="params">(father)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age,language)</span>:</span></span><br><span class="line">        super(children,self).__init__(name,age)<span class="comment">#这里再写的时候就没有self了</span></span><br><span class="line">        </span><br><span class="line">        <span class="string">'''由此可以看到，在子类继承父类属性的时候，在子类初始化的时候一定要包含了父类的全部初始化输入的，否则就不能继承属性</span></span><br><span class="line"><span class="string">        所以要对输入进行增加的时候可以直接继承父类属性，当不需要那么多的时候可以不继承属性。</span></span><br><span class="line"><span class="string">        实际上一般都继承的，因为子类的存在就是改写，对于想改的可以直接写，对于用不到的可以不用，没必要删除。'''</span></span><br><span class="line">        </span><br><span class="line">        self.language = language</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'&#123;&#125; is walking,who is &#123;&#125; years old,and this &#123;&#125; is eating'</span>.format(self.name,self.age,self.language))</span><br></pre></td></tr></table></figure>
+        <p><img src="/2019/02/24/python/Users/aniki/bolog/source/_posts/hexo/u=763525133,1154728425&amp;fm=26&amp;gp=0.jpg" alt="u=763525133,1154728425&amp;fm=26&amp;gp=0"></p>
+<p>本篇文章简单讲解python 的类及format用法，内容在注释。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">father</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">walk</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'&#123;&#125; is walking,who is &#123;&#125; years old.'</span>.format(self.name,self.age))</span><br><span class="line"><span class="comment">#format格式化，其中&#123;&#125;和：是一个作用，实际上&#123;&#125;常用于字符串和直接输出，：常用于数字定义</span></span><br><span class="line"><span class="comment">#format 使用。直接在format中写入变量，最好按顺序。</span></span><br><span class="line"><span class="comment">#因为在前面&#123;&#125;内可以定义顺序0，1或者填进变量名字，只不过format中要加’=‘，或者直接输入字典。</span></span><br><span class="line">c = father(<span class="string">'andy'</span>,<span class="number">22</span>)    </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">children</span><span class="params">(father)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age,language)</span>:</span></span><br><span class="line">        super(children,self).__init__(name,age)<span class="comment">#这里再写的时候就没有self了</span></span><br><span class="line">        </span><br><span class="line">        <span class="string">'''由此可以看到，在子类继承父类属性的时候，在子类初始化的时候一定要包含了父类的全部初始化输入的，否则就不能继承属性</span></span><br><span class="line"><span class="string">        所以要对输入进行增加的时候可以直接继承父类属性，当不需要那么多的时候可以不继承属性。</span></span><br><span class="line"><span class="string">        实际上一般都继承的，因为子类的存在就是改写，对于想改的可以直接写，对于用不到的可以不用，没必要删除。'''</span></span><br><span class="line">        </span><br><span class="line">        self.language = language</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'&#123;&#125; is walking,who is &#123;&#125; years old,and this &#123;&#125; is eating'</span>.format(self.name,self.age,self.language))</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-link" href="/2019/02/24/python/">Read More...</a>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/24/python/" data-id="cjsiln27l0002w4u2tehurrdx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/24/python/" data-id="cjsimdary0001ysu2mjclkau3" class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">-python</a></li></ul>
 
@@ -149,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/23/hello-title/" data-id="cjsiln27o0004w4u2cd0svxn8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/23/hello-title/" data-id="cjsimdash0008ysu22ck8gqiu" class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/first/">-first</a></li></ul>
 
@@ -207,7 +280,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/23/hello-world/" data-id="cjsiln27h0001w4u2v0r1pgr5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/23/hello-world/" data-id="cjsimdaru0000ysu2uw93f7cd" class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/code/">-code</a></li></ul>
 
