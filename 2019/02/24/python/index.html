@@ -55,7 +55,7 @@
       
       
       
-        <p><img src="/2019/02/24/python/Users/aniki/bolog/source/_posts/hexo/u=763525133,1154728425&amp;fm=26&amp;gp=0.jpg" alt="u=763525133,1154728425&amp;fm=26&amp;gp=0"></p>
+        <p><img src="/2019/02/24/python/u=763525133,1154728425&amp;fm=26&amp;gp=0.jpg" alt="u=763525133,1154728425&amp;fm=26&amp;gp=0"></p>
 <p>本篇文章简单讲解python 的类及format用法，内容在注释。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">father</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">walk</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'&#123;&#125; is walking,who is &#123;&#125; years old.'</span>.format(self.name,self.age))</span><br><span class="line"><span class="comment">#format格式化，其中&#123;&#125;和：是一个作用，实际上&#123;&#125;常用于字符串和直接输出，：常用于数字定义</span></span><br><span class="line"><span class="comment">#format 使用。直接在format中写入变量，最好按顺序。</span></span><br><span class="line"><span class="comment">#因为在前面&#123;&#125;内可以定义顺序0，1或者填进变量名字，只不过format中要加’=‘，或者直接输入字典。</span></span><br><span class="line">c = father(<span class="string">'andy'</span>,<span class="number">22</span>)    </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">children</span><span class="params">(father)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age,language)</span>:</span></span><br><span class="line">        super(children,self).__init__(name,age)<span class="comment">#这里再写的时候就没有self了</span></span><br><span class="line">        </span><br><span class="line">        <span class="string">'''由此可以看到，在子类继承父类属性的时候，在子类初始化的时候一定要包含了父类的全部初始化输入的，否则就不能继承属性</span></span><br><span class="line"><span class="string">        所以要对输入进行增加的时候可以直接继承父类属性，当不需要那么多的时候可以不继承属性。</span></span><br><span class="line"><span class="string">        实际上一般都继承的，因为子类的存在就是改写，对于想改的可以直接写，对于用不到的可以不用，没必要删除。'''</span></span><br><span class="line">        </span><br><span class="line">        self.language = language</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'&#123;&#125; is walking,who is &#123;&#125; years old,and this &#123;&#125; is eating'</span>.format(self.name,self.age,self.language))</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -64,7 +64,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/24/python/" data-id="cjsimdary0001ysu2mjclkau3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/24/python/" data-id="cjsimpy7w000201u227l2bxdx" class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">-python</a></li></ul>
 
@@ -85,11 +85,6 @@
         </div>
       </a>
     
-    
-      <a href="/2019/02/23/hello-title/" class="article-nav-link">
-        <strong class="article-nav-caption">Olde posts</strong>
-        <div class="article-nav-title">hello title</div>
-      </a>
     
   </nav>
 

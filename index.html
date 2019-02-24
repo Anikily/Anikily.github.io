@@ -84,8 +84,7 @@
       
       
       
-        <p><img src="/2019/02/24/hexo/u=763525133,1154728425&amp;fm=26&amp;gp=0.jpg" alt="u=763525133,1154728425&amp;fm=26&amp;gp=0"></p>
-<h1 id="Hexo-使用记录"><a href="#Hexo-使用记录" class="headerlink" title="Hexo 使用记录"></a>Hexo 使用记录</h1><h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><p>​    hexo网页就有教程，但还是跟着视频比较合适。 </p>
+        <h1 id><a href="#" class="headerlink" title></a><img src="/2019/02/24/hexo/download.jpg" alt="download"></h1><h1 id="Hexo-使用记录"><a href="#Hexo-使用记录" class="headerlink" title="Hexo 使用记录"></a>Hexo 使用记录</h1><h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><p>​    hexo网页就有教程，但还是跟着视频比较合适。 </p>
 <p>​    下载git和node.js，node.js现场下的，git之前就有用过。node -v和git version可以查看版本 </p>
 <h2 id="2-预处理"><a href="#2-预处理" class="headerlink" title="2.预处理"></a>2.预处理</h2><ul>
 <li>终端：hexo init bolog ，生成一个bolog文件夹，并有从github上的文件，算是创建网页</li>
@@ -107,12 +106,14 @@
 <li>不同区域还有好多个配置文件。</li>
 <li>就是对网页，网站的一些配置，可以现学现用，而且太多。</li>
 </ul>
-<h2 id="6-hexo命令"><a href="#6-hexo命令" class="headerlink" title="6.hexo命令"></a>6.hexo命令</h2><p>- </p>
+<h2 id="6-hexo命令"><a href="#6-hexo命令" class="headerlink" title="6.hexo命令"></a>6.hexo命令</h2><ul>
+<li></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/24/hexo/" data-id="cjsimdasj000aysu2t8j9h3pl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/24/hexo/" data-id="cjsimpy7q000001u2ht5lskaq" class="article-share-link">Share</a>
       
     </footer>
 
@@ -159,7 +160,7 @@
       
       
       
-        <p><img src="/2019/02/24/python/Users/aniki/bolog/source/_posts/hexo/u=763525133,1154728425&amp;fm=26&amp;gp=0.jpg" alt="u=763525133,1154728425&amp;fm=26&amp;gp=0"></p>
+        <p><img src="/2019/02/24/python/u=763525133,1154728425&amp;fm=26&amp;gp=0.jpg" alt="u=763525133,1154728425&amp;fm=26&amp;gp=0"></p>
 <p>本篇文章简单讲解python 的类及format用法，内容在注释。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">father</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">walk</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'&#123;&#125; is walking,who is &#123;&#125; years old.'</span>.format(self.name,self.age))</span><br><span class="line"><span class="comment">#format格式化，其中&#123;&#125;和：是一个作用，实际上&#123;&#125;常用于字符串和直接输出，：常用于数字定义</span></span><br><span class="line"><span class="comment">#format 使用。直接在format中写入变量，最好按顺序。</span></span><br><span class="line"><span class="comment">#因为在前面&#123;&#125;内可以定义顺序0，1或者填进变量名字，只不过format中要加’=‘，或者直接输入字典。</span></span><br><span class="line">c = father(<span class="string">'andy'</span>,<span class="number">22</span>)    </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">children</span><span class="params">(father)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age,language)</span>:</span></span><br><span class="line">        super(children,self).__init__(name,age)<span class="comment">#这里再写的时候就没有self了</span></span><br><span class="line">        </span><br><span class="line">        <span class="string">'''由此可以看到，在子类继承父类属性的时候，在子类初始化的时候一定要包含了父类的全部初始化输入的，否则就不能继承属性</span></span><br><span class="line"><span class="string">        所以要对输入进行增加的时候可以直接继承父类属性，当不需要那么多的时候可以不继承属性。</span></span><br><span class="line"><span class="string">        实际上一般都继承的，因为子类的存在就是改写，对于想改的可以直接写，对于用不到的可以不用，没必要删除。'''</span></span><br><span class="line">        </span><br><span class="line">        self.language = language</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'&#123;&#125; is walking,who is &#123;&#125; years old,and this &#123;&#125; is eating'</span>.format(self.name,self.age,self.language))</span><br></pre></td></tr></table></figure>
         
@@ -168,121 +169,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/24/python/" data-id="cjsimdary0001ysu2mjclkau3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/24/python/" data-id="cjsimpy7w000201u227l2bxdx" class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">-python</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-hello-title" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/02/23/hello-title/">hello title</a>
-    </h2>
-  
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/02/23/hello-title/" class="article-date">
-  <time datetime="2019-02-23T05:10:47.000Z" itemprop="datePublished">2019-02-23</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/install/">-install</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      
-        <h1 id="Hexo-使用记录"><a href="#Hexo-使用记录" class="headerlink" title="Hexo 使用记录"></a>Hexo 使用记录</h1><h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><p>​    hexo网页就有教程，但还是跟着视频比较合适。<br>​<br>​    ​    下载git和node.js，node.js现场下的，git之前就有用过。node -v和git version可以查看版本<br>​    ​<br>​    ​<br>​    ​<br>​    ​     2.预处理<br>​    ​<br>​    ​    - 终端：hexo init bolog ，生成一个bolog文件夹，并有从github上的文件，算是创建网页<br>​    ​    - 进入 bolog文件夹下，npm install 可以继续下载安装文件夹时失败的文件<br>​    ​    - hexo g可以generate一系列的网页模版，并在这之后生成public文件夹<br>​    ​    - hexo s可以运行端口查看网页 ，在<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>​    ​<br>​    ​    ## 3.编写<br>​    ​<br>​    ​    - 题目：hexo new ‘title’可以编写一个题目</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/23/hello-title/" data-id="cjsimdash0008ysu22ck8gqiu" class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/first/">-first</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/02/23/hello-world/">Hello World</a>
-    </h2>
-  
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/02/23/hello-world/" class="article-date">
-  <time datetime="2019-02-23T03:44:01.298Z" itemprop="datePublished">2019-02-23</time>
-</a>
-        
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/23/hello-world/" data-id="cjsimdaru0000ysu2uw93f7cd" class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/code/">-code</a></li></ul>
 
     </footer>
 
