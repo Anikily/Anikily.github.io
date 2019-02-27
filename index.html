@@ -100,9 +100,65 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/24/vedio-caption/" data-id="cjsmx45o9000cs7u2tusfz926" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/24/vedio-caption/" data-id="cjsmx5xh8000bsju2iu6lfm90" class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vedio-caption-review/">-vedio caption -review</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-Faster-RCNN" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/02/24/Faster-RCNN/">Faster-RCNN</a>
+    </h2>
+  
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/02/24/Faster-RCNN/" class="article-date">
+  <time datetime="2019-02-24T07:49:46.000Z" itemprop="datePublished">2019-02-24</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/paper/">-paper</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+        <h1 id="Faster-RCNN"><a href="#Faster-RCNN" class="headerlink" title="Faster-RCNN"></a>Faster-RCNN</h1><h3 id="本文假设读者已有图像分类及Fast-RCNN的基础。"><a href="#本文假设读者已有图像分类及Fast-RCNN的基础。" class="headerlink" title="本文假设读者已有图像分类及Fast-RCNN的基础。"></a>本文假设读者已有图像分类及Fast-RCNN的基础。</h3><p>对于Faster-RCNN来说，数据的流动可以从两个方面来理解，其一是从anchor的产生经过系统的筛选和分类以及回归最后得到候选框及其附加信息的角度出发。二是从输入三维图像矩阵的各种卷积变换到最后得到的结果出发。将两个数据的流动方向结合一起会对理解该模型更有帮助。</p>
+        
+          <a class="article-more-link" href="/2019/02/24/Faster-RCNN/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/24/Faster-RCNN/" data-id="cjsmx5xgh0000sju24xemy3ly" class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/object-detection-computer-vision/">-object-detection -computer-vision</a></li></ul>
 
     </footer>
 
@@ -160,90 +216,8 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/24/hexo/" data-id="cjsmx45ng0001s7u21m53oasz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/24/hexo/" data-id="cjsmx5xgl0001sju2uqcf1u85" class="article-share-link">Share</a>
       
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-Faster-RCNN" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/02/24/Faster-RCNN/">Faster-RCNN</a>
-    </h2>
-  
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/02/24/Faster-RCNN/" class="article-date">
-  <time datetime="2019-02-24T07:49:46.000Z" itemprop="datePublished">2019-02-24</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/paper/">-paper</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      
-        <h1 id="Faster-RCNN"><a href="#Faster-RCNN" class="headerlink" title="Faster-RCNN"></a>Faster-RCNN</h1><h3 id="本文假设读者已有图像分类及Fast-RCNN的基础。"><a href="#本文假设读者已有图像分类及Fast-RCNN的基础。" class="headerlink" title="本文假设读者已有图像分类及Fast-RCNN的基础。"></a>本文假设读者已有图像分类及Fast-RCNN的基础。</h3><p>对于Faster-RCNN来说，数据的流动可以从两个方面来理解，其一是从anchor的产生经过系统的筛选和分类以及回归最后得到候选框及其附加信息的角度出发。二是从输入三维图像矩阵的各种卷积变换到最后得到的结果出发。将两个数据的流动方向结合一起会对理解该模型更有帮助。</p>
-<h3 id="一-RPN"><a href="#一-RPN" class="headerlink" title="一.RPN"></a>一.RPN</h3><p><img src="/2019/02/24/Faster-RCNN/屏幕快照 2019-02-26 下午2.26.18.png" alt="屏幕快照 2019-02-26 下午2.26.18"></p>
-<ul>
-<li><p>anchor机制创造的目的是为了替换掉Fast-RCNN中的selective search算法，在Fast-RCNN算法中，proposal的提取为speed的主要限制，那么提高速度的一个很关键问题是怎么给Proposal提速，那么如何提速呢？</p>
-</li>
-<li><p>最自然的一个想法就是使用神经网络，在proposal处理中已经成功的对不同的proposal使用了相同的feature来分类和回归，如果能充分利用features来提取proposal的话，那么提取proposal就基本上没有额外的消耗了。那么如何使用神经网络来提取proposal呢？</p>
-</li>
-<li><p>神经网络的基本作用就是分类和回归，也就是对于一个目标可以贴上标签，但是神经网络不可能在得到相同大小的输入的情况下得到不同大小的结果，也就是网络只能对固定数量的输入得到固定数量的输出。</p>
-</li>
-<li><p>如果我们假设在每个尺寸的图片中都标定一些固定数量和大小的目标框，这些目标框的数量巨大，尺寸丰富，可以涵盖任何一个图像中的bbox，然后用神经网络来对这些框进行前景和背景的分类，并尽量对这些框进行一些修正，就可以把神经网络和proposal提取结合起来，这样我们就得到了Faster-RCNN中最关键的RPN的基本思路。</p>
-</li>
-<li><p><strong>即在图像上用划窗的形式每隔一个固定的stride（实际上就是feature的stride）生成用不同scale，aspect ratio对基本框进行改变的anchor（文章中3个aspect ratio，3个scale，共9个框）。然后网络对这些anchor进行前景和背景的分类打分，并给出偏移坐标，提取出scores top的候选框再经过NMS就得到了最后的proposal。</strong></p>
-<p>上述有几个问题需要说明一下</p>
-<ol>
-<li>为什么每隔feature的stride来得到anchor。这里的关键是如何用神经网络来对anchor进行分类和回归，类似的问题还有YOLO中为什么就能得到中心点的物体，再扩展就是为什么卷积神经网络什么都能干。实际上涉及到了如何将神经网络的输出与语义信息结合起来，在图像分类中，一个图片的三维矩阵送入卷积网络输出一个值作为结果，这个值其实是人为赋予的语义信息（如输出3代表飞机类），并给这个图像一个另一个具有语义信息的标签（如5代表汽车类），让这个网络对这个照片输出的值更加接近标签的值就得到了最后的结果，所以实际上训练的过程是让网络输出的值会更加接近人们想让它接近的值。而这个值到底代表了什么要看人们给这个值赋予什么语义信息。简单说就是给网络什么样的标签就会得到什么样的值，再简单说就是，你想要这个值代表什么，并给网络指导信息，这个值就会代表什么。结合问题，输入经过网络后会缩小尺寸stride倍得到feature（H，W，C），我们正好让feature上每一点的通道信息（分类为2*9=18个通道，回归为46个通道）都代表了对原图中以这个点为中心的anchor的分类和偏移，就完成了网络对anchor的分类和回归。</li>
-<li>scale 和 aspect ratio是人为设置的超参数，可以根据任务灵活的调整。</li>
-</ol>
-</li>
-<li><strong>如何训练RPN。</strong>这里的关键是如何正确的理解目标检测任务的ground-turth。和分类任务中原图的ground-turth直接对结果产生约束不同，训练RPN的标签信息并不是原图的bbox和label，而是通过原图的bbox和label对所有的anchor打标签，所以对于RPN而言真正的ground-truth信息是anchor上的标签。Head Net中的训练方法同理，也需要对proposal打上标签再送入网络中训练。其次，由于每个图片大约有1.6万个anchor，如果全部进行求损失梯度回传的话，正样本会被负样本淹没，这样模型只需要对负样本分类正确就会得到很低的loss。因此回传过程中要人为的挑选一下正负样本的比例和个数，文章中为256个样本，正负比例为1:1。</li>
-</ul>
-<h3 id="二-整体框架"><a href="#二-整体框架" class="headerlink" title="二.整体框架"></a>二.整体框架</h3><p><img src="/2019/02/24/Faster-RCNN/屏幕快照 2019-02-26 下午2.26.06.png" alt="屏幕快照 2019-02-26 下午2.26.06"></p>
-<ul>
-<li>上图是论文中Faster-RCNN的整体框架，图像经过基础网络提取特征之后送进RPN中提取proposal，之后将proposal映射到feature上并用ROI Pooling得到每个proposal的固定大小的特征，最后送入分类器和回归器进行回归。</li>
-</ul>
-<p><img src="/2019/02/24/Faster-RCNN/WechatIMG16.jpeg" alt="WechatIMG16"></p>
-<ul>
-<li>上图为Faster-RCNN代码的整体实现流程。取自<a href="https://github.com/chenyuntc/simple-faster-rcnn-pytorch" target="_blank" rel="noopener">https://github.com/chenyuntc/simple-faster-rcnn-pytorch</a></li>
-</ul>
-<p><img src="/2019/02/24/Faster-RCNN/WechatIMG22.jpeg" alt="WechatIMG22"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/24/Faster-RCNN/" data-id="cjsmx45nj0002s7u2us013p6d" class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/object-detection-computer-vision/">-object-detection -computer-vision</a></li></ul>
-
     </footer>
 
   </div>
@@ -296,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/24/python/" data-id="cjsmx45nl0003s7u29pjs282t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/24/python/" data-id="cjsmx5xgp0004sju2z94do8mx" class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">-python</a></li></ul>
 
