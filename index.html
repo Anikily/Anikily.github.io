@@ -90,34 +90,14 @@
       
         <h1 id="目标检测-anchor-显示"><a href="#目标检测-anchor-显示" class="headerlink" title="目标检测 anchor 显示"></a>目标检测 anchor 显示</h1><p>目前目标检测模型模型大多采用anchor机制，即预设几种框去覆盖图片可能出现的bbox，而anchor的scales和aspect ratios是手动设置，针对不同的数据集设置不同的超参数有助于提高模型的精度和速度，而可视化这些anchor观察在图像中的情况是调整参数的重要依据。</p>
 <p>本次数据集为<a href="https://www.datafountain.cn/competitions/332/details/data-evaluation" target="_blank" rel="noopener">钢筋测数比赛的数据集</a>,标签框基本都是正方形，尺寸也不会有太大变化。</p>
-<h3 id="1-查看需要检测的bbox中H和W的分布情况"><a href="#1-查看需要检测的bbox中H和W的分布情况" class="headerlink" title="1.查看需要检测的bbox中H和W的分布情况"></a>1.查看需要检测的bbox中H和W的分布情况</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line">data = pd.read_csv(<span class="string">'/Users/aniki/Desktop/train_labels.csv'</span>)</span><br><span class="line"><span class="comment">#data为目标框(n,3)，[n,1]为xmin ymin xmax ymax.且xmax-xmin=w,ymax-ymin=h</span></span><br><span class="line">data = np.array(data)</span><br><span class="line">data = data[:,<span class="number">1</span>]</span><br><span class="line">n = data.shape[<span class="number">0</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_data</span><span class="params">(data)</span>:</span></span><br><span class="line">    xmin,ymin,xmax,ymax = [],[],[],[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">        a,b,c,d = data[i].split()</span><br><span class="line">           xmin.append(int(a)),ymin.append(int(b)),xmax.append(int(c)),ymax.append(int(d))</span><br><span class="line">    <span class="keyword">return</span> np.array(xmin),np.array(ymin),np.array(xmax),np.array(ymax)</span><br><span class="line">xmin,ymin,xmax,ymax = get_data(data)</span><br><span class="line"></span><br><span class="line">h = xmax-xmin</span><br><span class="line">w = ymax-ymin</span><br><span class="line">scale = h/w</span><br><span class="line">hmax = np.argmax(h)</span><br><span class="line">wmax = np.argmax(w)</span><br><span class="line">print(hmax,wmax)</span><br><span class="line">sns.distplot(h)</span><br><span class="line">sns.distplot(w)</span><br></pre></td></tr></table></figure>
-<p>原图情况下得到H最大值为291，W最大值为330，在缩小一倍图像尺寸的情况下最大为312，289，此尺寸应对应最大组。</p>
-<p>分布图如下：</p>
-<p><img src="/2019/02/27/anchor-display/h分布.png" alt="h分布"></p>
-<p>上图是h的分布，可以看到，我们只要覆盖50-300的范围就可以。</p>
-<p><img src="/2019/02/27/anchor-display/w分布.png" alt="w分布"></p>
-<p>上图是w的分布直方图，也是类似于高h，只要覆盖50-300的范围即可。</p>
-<p>因此，anchor可以在每个区域生成一个最大组，一个最小组和两个峰值的组，同时伴随着3个scale就可以。</p>
-<p><img src="/2019/02/27/anchor-display/scale分布.png" alt="scale分布"></p>
-<p>上图是scale的分布，可以看到横纵比例符合高斯分布，方差较小，均值为1.所以设置0.75，1，1.25最合适。</p>
-<p>最后设置ratios为0.75，1，1.25；scales为5，9，14，基础size为16，这个数值要根据图像的resize随着调整。</p>
-<p>原版配置ratios为0.5，1，2；scale为2，1.25，1.58</p>
-<h3 id="2-生成anchor并在图像中显示出来"><a href="#2-生成anchor并在图像中显示出来" class="headerlink" title="2.生成anchor并在图像中显示出来"></a>2.生成anchor并在图像中显示出来</h3><p>anchor生成代码（参考<a href="https://github.com/chenyuntc/simple-faster-rcnn-pytorch）：" target="_blank" rel="noopener">https://github.com/chenyuntc/simple-faster-rcnn-pytorch）：</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate_anchor_base</span><span class="params">(base_size=<span class="number">8</span>, ratios=[<span class="number">0.5</span>, <span class="number">1</span>, <span class="number">2</span>],</span></span></span><br><span class="line"><span class="function"><span class="params">                         anchor_scales=[<span class="number">8</span>, <span class="number">16</span>，<span class="number">32</span>])</span>:</span></span><br><span class="line">    py = base_size / <span class="number">2.</span></span><br><span class="line">    px = base_size / <span class="number">2.</span></span><br><span class="line"></span><br><span class="line">    anchor_base = np.zeros((len(ratios) * len(anchor_scales), <span class="number">4</span>),</span><br><span class="line">                           dtype=np.float32)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> six.moves.range(len(ratios)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> six.moves.range(len(anchor_scales)):</span><br><span class="line">            h = base_size * anchor_scales[j] * np.sqrt(ratios[i])</span><br><span class="line">            w = base_size * anchor_scales[j] * np.sqrt(<span class="number">1.</span> / ratios[i])</span><br><span class="line"></span><br><span class="line">            index = i * len(anchor_scales) + j</span><br><span class="line">            anchor_base[index, <span class="number">0</span>] = py - h / <span class="number">2.</span></span><br><span class="line">            anchor_base[index, <span class="number">1</span>] = px - w / <span class="number">2.</span></span><br><span class="line">            anchor_base[index, <span class="number">2</span>] = py + h / <span class="number">2.</span></span><br><span class="line">            anchor_base[index, <span class="number">3</span>] = px + w / <span class="number">2.</span></span><br><span class="line">    <span class="keyword">return</span> anchor_base</span><br></pre></td></tr></table></figure>
-<p>返回的anchor为左上点和右下点坐标。</p>
-<p>在图像中显示bbox的代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_bbox</span><span class="params">(img,bbox)</span>:</span><span class="comment">#(默认为左上角右下角点)</span></span><br><span class="line">    fig = plt.figure(frameon=<span class="keyword">False</span>)<span class="comment">#先生成图，再生成对象，对象依赖在某个图上。</span></span><br><span class="line">    ax = plt.Axes(fig, [<span class="number">0.</span>, <span class="number">0.</span>, <span class="number">1.</span>, <span class="number">1.</span>])<span class="comment">#控制大小。</span></span><br><span class="line">    ax.axis(<span class="string">'off'</span>)</span><br><span class="line">    fig.add_axes(ax)</span><br><span class="line">    n = bbox.shape[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">25</span>):</span><br><span class="line">        bboxs = bbox[i]</span><br><span class="line">        ax.add_patch(</span><br><span class="line">            plt.Rectangle((bboxs[<span class="number">0</span>], bboxs[<span class="number">1</span>]),</span><br><span class="line">                          bboxs[<span class="number">2</span>] - bboxs[<span class="number">0</span>],</span><br><span class="line">                          bboxs[<span class="number">3</span>] - bboxs[<span class="number">1</span>],</span><br><span class="line">                          fill=<span class="keyword">False</span>, edgecolor=<span class="string">'r'</span>,</span><br><span class="line">                          linewidth=<span class="number">1</span>))</span><br><span class="line">    ax.imshow(img)</span><br></pre></td></tr></table></figure>
-<p>显示默认情况下的anchor图片：</p>
-<p><img src="/2019/02/27/anchor-display/屏幕快照 2019-02-27 下午10.43.19.png" alt="屏幕快照 2019-02-27 下午10.43.19"></p>
-<p>可以看到，对于这个数据集来说，大部分的anchor其实是没有用的。</p>
-<p>修改之后的anchor：</p>
-<p><img src="/2019/02/27/anchor-display/屏幕快照 2019-02-27 下午10.40.04.png" alt="屏幕快照 2019-02-27 下午10.40.04"></p>
-<p>修改之后的anchor明显更加贴近真实的物体框。</p>
-
+<h3 id="1-查看需要检测的bbox中H和W的分布情况"><a href="#1-查看需要检测的bbox中H和W的分布情况" class="headerlink" title="1.查看需要检测的bbox中H和W的分布情况"></a>1.查看需要检测的bbox中H和W的分布情况</h3>
+        
+          <a class="article-more-link" href="/2019/02/27/anchor-display/">Read More...</a>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/27/anchor-display/" data-id="cjsny0uf20002tuu2vueweats" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/27/anchor-display/" data-id="cjsny1vws0003uiu2xuol801u" class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-anchor/">-python anchor</a></li></ul>
 
@@ -178,7 +158,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/24/vedio-caption/" data-id="cjsny0uft000htuu2jj244jmu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/24/vedio-caption/" data-id="cjsny1vxf000iuiu2kc62vt4h" class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vedio-caption-review/">-vedio caption -review</a></li></ul>
 
@@ -234,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/24/Faster-RCNN/" data-id="cjsny0uex0000tuu2ecm5qqiu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/24/Faster-RCNN/" data-id="cjsny1vwn0001uiu2gkxt85a2" class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/object-detection-computer-vision/">-object-detection -computer-vision</a></li></ul>
 
@@ -294,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/24/hexo/" data-id="cjsny0uf50005tuu283jxho2x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/24/hexo/" data-id="cjsny1vww0006uiu2q9kvnpke" class="article-share-link">Share</a>
       
     </footer>
 
@@ -348,7 +328,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/24/python/" data-id="cjsny0uf60006tuu27pm2x2yn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/24/python/" data-id="cjsny1vwy0007uiu2kyet2929" class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">-python</a></li></ul>
 
